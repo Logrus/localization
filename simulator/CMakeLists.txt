@@ -101,7 +101,6 @@ catkin_package(
   LIBRARIES simulator
   CATKIN_DEPENDS roscpp rospy std_msgs tf visualization_msgs
   DEPENDS system_lib
-  DEPENDS Eigen
 )
 
 ###########
