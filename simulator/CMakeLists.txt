@@ -16,7 +16,12 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   visualization_msgs
 )
-FIND_PACKAGE(Eigen3 REQUIRED)
+find_package(Eigen 3 QUIET)
+if(NOT Eigen_FOUND)
+  include(${PROJ_SOURCE_DIR}/../cmake_modules/FindEigen3.cmake)
+  set(Eigen_INCLUDE_DIR ${EIGEN3_INCLUDE_DIR})
+endif()
+include_directories(${Eigen_INCLUDE_DIR})
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
